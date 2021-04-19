@@ -1,3 +1,4 @@
+using Azure.Blob.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
@@ -18,6 +19,7 @@ namespace Azure.Blob.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<IStorageAccount, StorageAccount>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
